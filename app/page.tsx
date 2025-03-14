@@ -11,20 +11,22 @@ const HomeContent = () => {
       h1.onmouseover = (event) => {
         let iterations = 0;
         const interval = setInterval(() => {
-          event.target.innerText = event.target.innerText.split("")
-            .map((letter, index) => {
-              if (index < iterations) {
-                return event.target.dataset.value[index];
-              }
-              return letters[Math.floor(Math.random() * 37)];
-            })
-            .join("");
+          if (event.target) {
+            event.target.innerText = event.target.innerText.split("")
+              .map((letter, index) => {
+                if (index < iterations) {
+                  return event.target.dataset.value?.[index] || "";
+                }
+                return letters[Math.floor(Math.random() * 37)];
+              })
+              .join("");
 
-          if (iterations >= event.target.dataset.value.length) {
-            clearInterval(interval);
+            if (iterations >= (event.target.dataset.value?.length || 0)) {
+              clearInterval(interval);
+            }
+
+            iterations += 1 / 5;
           }
-
-          iterations += 1 / 5;
         }, 50);
       };
     }
