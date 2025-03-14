@@ -1,10 +1,13 @@
 "use client";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import FadeIn from "./_components/animate/FadeIn";
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_";
 
 const HomeContent = () => {
+  const router = useRouter();
+  
   useEffect(() => {
     const h1 = document.querySelector("h1");
     if (h1) {
@@ -33,9 +36,19 @@ const HomeContent = () => {
     }
   }, []);
 
+  const handleClick = () => {
+    router.push("/home");
+  };
+
   return (
     <>
-      <h1 data-value="CONNOR_FEUCHT">CONNOR_FEUCHT</h1>
+      <h1 
+        data-value="CONNOR_FEUCHT"
+        onClick={handleClick}
+        style={{ cursor: "pointer" }}
+      >
+        CONNOR_FEUCHT
+      </h1>
     </>
   );
 };
