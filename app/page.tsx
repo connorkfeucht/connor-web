@@ -8,7 +8,7 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_";
 const HomeContent = () => {
   const router = useRouter();
   
-  useEffect(() => {
+  useEffect(() => { // makes the decoding effect
     const h1 = document.querySelector("h1");
     if (h1) {
       h1.onmouseover = (event) => {
