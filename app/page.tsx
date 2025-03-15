@@ -10,11 +10,11 @@ const HomeContent = () => {
   
   useEffect(() => { // makes the decoding effect
     const h1 = document.querySelector("h1");
+    let interval: NodeJS.Timeout;
     if (h1) {
-      h1.onmouseover = (event) => {
+      const decodeEffect = (target: HTMLElement) => {
         let iterations = 0;
         const interval = setInterval(() => {
-          const target = event.target as HTMLElement;
           if (target) {
             target.innerText = target.innerText.split("")
               .map((letter, index) => {
@@ -33,6 +33,14 @@ const HomeContent = () => {
           }
         }, 50);
       };
+
+      const h1 = document.querySelector("h1");
+      if (h1) {
+        decodeEffect(h1); // Trigger effect on page load
+        h1.onmouseover = (event) => {
+          decodeEffect(event.target as HTMLElement); // Trigger effect on mouse over
+        };
+      }
     }
   }, []);
 
