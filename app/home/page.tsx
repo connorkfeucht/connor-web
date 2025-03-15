@@ -1,22 +1,61 @@
 "use client";
 import { useRouter } from "next/navigation";
 import FadeIn from "../_components/animate/FadeIn";
+import useDecodeEffect from "../hooks/useDecodeEffect";
 
 const HomePageContent = () => {
   const router = useRouter();
+  
   return (
-    <div className="flex flex-col items-center justify-center p-4">
-      <div className="p-8 max-w-2xl w-full">
-        <h1 className="text-center">WELCOME</h1>
-        <p className="text-lg mb-4">
-          Hello! I'm a Computer Science Graphics student studying at University of Victoria, 
-          and I am currently in my fourth year of studies! I am enrolled in my school's Co-op program, 
-          and so far I've completed one internship for the University of Victoria (University Systems) as a Help Desk Analyst. 
-          It was a fun job where I got to solve lots of new problems every day!
-        </p>
-        <p className="text-lg">
-          If I'm not studying or working, you can usually find me on the basketball court, hanging out with my friends, shopping, or playing video games!
-        </p>
+    <div className="flex flex-col items-center justify-center p-4 h-screen">
+      
+      {/* Scrollable content */}
+      <div className="w-full max-w-4xl overflow-y-auto flex-1 scrollbar-hide">
+
+        <div className="w-full max-w-4xl p-8">
+          <h1 className="text-center font-bold">WELCOME</h1>
+        </div>
+
+        <div className="p-8">
+          <h2 className="text-2xl text-left font-bold mb-2">ABOUT ME</h2>
+          <p className="text-lg mb-4">
+            Hi, I'm Connor! I'm currently a Computer Science major at the University of Victoria, specializing in Graphics and Gaming. 
+            Originally from Calgary, Alberta, I moved to Victoria in 2022 to pursue my studies. 
+            Time flies, and now I'm already in my fourth year!
+          </p>
+          <p className="text-lg mb-4">
+            If I'm not studying or working, you can usually find me on the basketball court, hanging out with my friends, or playing video games!
+          </p>
+
+          <h2 className="text-2xl text-left font-bold mb-2">JOB EXPERIENCE</h2>
+          <h3 className="text-lg text-left font-bold">HELP DESK ANALYST, UNIVERSITY OF VICTORIA</h3>
+          <p className="text-lg mb-4">
+            During the Fall 2024 semester, I completed my first co-op as a Help Desk Analyst at UVic Systems. 
+            This role provided me with invaluable experience in troubleshooting a wide range of technical issues 
+            faced by students and staff. Additionally, I contributed by writing test scripts for a Java web application under the guidance of my mentor.
+          </p>
+          
+          <h2 className="text-2xl text-left font-bold mb-2">TECHNICAL PROJECTS</h2>
+          <h3 className="text-lg text-left font-bold">NOTENUDGE</h3>
+          <p className="text-lg mb-4">
+              NoteNudge is a passion project that leverages AI technology to assist students in studying more effectively for their classes.
+          </p>
+          <p className="text-lg mb-4">
+              I contributed to the development of the front end of the website using React and Next.js. 
+              My responsibilities included organizing and coding the user interface. 
+              This experience was highly rewarding and significantly improved my teamwork and programming skills.
+          </p>
+          <h3 className="text-lg text-left font-bold">PICIT</h3>
+          <p className="text-lg mb-4">
+            PicIt is an iOS application that my friend and I launched in the Fall of 2024. 
+            It is a social media platform designed to bring people together by encouraging users 
+            to recreate photos from their camera roll daily and share them with their friends.
+          </p>
+          <p className="text-lg mb-4">
+            Developed the front end of the iOS application using Xcode, Swift, and SwiftUI. 
+            My responsibilities included designing, organizing, and programming the user interface of the application.
+          </p>
+        </div>
       </div>
     </div>
   );
