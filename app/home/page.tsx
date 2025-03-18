@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import FadeIn from "../_components/animate/FadeIn";
 // import useDecodeEffect from "../hooks/useDecodeEffect";
+import Link from "next/link"; 
 
 const HomePageContent = () => {
   const router = useRouter();
@@ -18,7 +19,9 @@ const HomePageContent = () => {
           rel="noopener noreferrer"
         >
           <img
-            src={"/GitHub_Invertocat_Dark.png"} // TODO: FIX. IMAGE NOT SHOWING UP PROPERLY
+            src={'/GitHub_Invertocat_Dark.png'}
+            height={25}
+            width={25}
           />
         </a>
         <a
@@ -26,7 +29,11 @@ const HomePageContent = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          LinkedIn
+          <img
+            src={'/InBug-Black.png'}
+            height={25}
+            width={25}
+          />
         </a>
       </div>
 
