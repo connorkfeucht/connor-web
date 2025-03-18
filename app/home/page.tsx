@@ -1,13 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
 import FadeIn from "../_components/animate/FadeIn";
-// import useDecodeEffect from "../hooks/useDecodeEffect";
-import Link from "next/link"; 
+import useDecodeEffect from "../hooks/useDecodeEffect";
 
 const HomePageContent = () => {
   const router = useRouter();
   
-  // useDecodeEffect(); // Use the custom hook
+  useDecodeEffect(); // Use the custom hook
 
   return (
     <div className="relative flex flex-col items-center justify-center p-4 h-screen">
@@ -17,6 +16,7 @@ const HomePageContent = () => {
           href="https://github.com/connorkfeucht"
           target="_blank"
           rel="noopener noreferrer"
+          className="inline-block transition-transform duration-300 hover:scale-105"
         >
           <img
             src={'/GitHub_Invertocat_Dark.png'}
@@ -28,6 +28,7 @@ const HomePageContent = () => {
           href="https://www.linkedin.com/in/connorkfeucht"
           target="_blank"
           rel="noopener noreferrer"
+          className="inline-block transition-transform duration-300 hover:scale-105"
         >
           <img
             src={'/InBug-Black.png'}
@@ -40,7 +41,12 @@ const HomePageContent = () => {
       {/* Scrollable content */}
       <div className="w-full max-w-4xl overflow-y-auto flex-1 scrollbar-hide">
         <div className="w-full max-w-4xl p-8">
-          <h1 className="text-center font-bold">WELCOME</h1>
+          <h1 
+            className="text-center font-bold"
+            data-value="WELCOME"
+          >
+            WELCOME
+          </h1>
         </div>
 
         <div className="p-8">

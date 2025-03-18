@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 // IMPORT FOR USE OF DECODEEFFECT IN PARTS OF PROGRAM
-// TODO: FIX, CURRENTLY FACING BUGS WHEN IMPORTED, WHEN THIS CODE IS USED IN THE PAGE.TSX IT WORKS
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_";
 
 const useDecodeEffect = () => {
@@ -32,9 +31,9 @@ const useDecodeEffect = () => {
       };
 
       decodeEffect(h1); // Trigger effect on page load
-      h1.onmouseover = (event) => {
-        decodeEffect(event.target as HTMLElement); // Trigger effect on mouse over
-      };
+      // h1.onmouseover = (event) => {
+      //   decodeEffect(event.target as HTMLElement); // Trigger effect on mouse over
+      // };
     }
 
     return () => clearInterval(interval); // Cleanup interval on component unmount

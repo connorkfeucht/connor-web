@@ -1,52 +1,14 @@
 "use client";
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import FadeIn from "./_components/animate/FadeIn";
-// import useDecodeEffect from "./hooks/useDecodeEffect";
+import useDecodeEffect from "./hooks/useDecodeEffect";
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ_";
 
 const HomeContent = () => {
   const router = useRouter();
   
-  // useDecodeEffect(); // TODO: FIX
-
-  // temporary until above TODO is fixed
-  useEffect(() => { // makes the decoding effect
-    const h1 = document.querySelector("h1");
-    let interval: NodeJS.Timeout;
-    if (h1) {
-      const decodeEffect = (target: HTMLElement) => {
-        let iterations = 0;
-        const interval = setInterval(() => {
-          if (target) {
-            target.innerText = target.innerText.split("")
-              .map((letter, index) => {
-                if (index < iterations) {
-                  return target.dataset.value?.[index] || "";
-                }
-                return letters[Math.floor(Math.random() * 27)];
-              })
-              .join("");
-
-            if (iterations >= (target.dataset.value?.length || 0)) {
-              clearInterval(interval);
-            }
-
-            iterations += 1 / 5;
-          }
-        }, 50);
-      };
-
-      const h1 = document.querySelector("h1");
-      if (h1) {
-        decodeEffect(h1); // Trigger effect on page load
-        h1.onmouseover = (event) => {
-          decodeEffect(event.target as HTMLElement); // Trigger effect on mouse over
-        };
-      }
-    }
-  }, []);
+  useDecodeEffect();
 
   const handleClick = () => {
     router.push("/home");
@@ -54,10 +16,38 @@ const HomeContent = () => {
 
   return (
     <>
+      {/* Fixed navigation bar */}
+      <div className="fixed top-4 right-4 flex space-x-4 z-10">
+        <a
+          href="https://github.com/connorkfeucht"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block transition-transform duration-300 hover:scale-105"
+        >
+          <img
+            src={'/GitHub_Invertocat_Dark.png'}
+            height={25}
+            width={25}
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/connorkfeucht"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block transition-transform duration-300 hover:scale-105"
+        >
+          <img
+            src={'/InBug-Black.png'}
+            height={25}
+            width={25}
+          />
+        </a>
+      </div>
+
       <h1
         data-value="CONNOR_FEUCHT"
         onClick={handleClick}
-        className="font-bold cursor-pointer"
+        className="font-bold cursor-pointer inline-block transition-transform duration-300 hover:scale-101"
       >
         CONNOR_FEUCHT
       </h1>
