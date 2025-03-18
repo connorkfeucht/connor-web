@@ -1,17 +1,37 @@
 "use client";
 import { useRouter } from "next/navigation";
 import FadeIn from "../_components/animate/FadeIn";
-import useDecodeEffect from "../hooks/useDecodeEffect";
+// import useDecodeEffect from "../hooks/useDecodeEffect";
 
 const HomePageContent = () => {
   const router = useRouter();
   
+  // useDecodeEffect(); // Use the custom hook
+
   return (
-    <div className="flex flex-col items-center justify-center p-4 h-screen">
-      
+    <div className="relative flex flex-col items-center justify-center p-4 h-screen">
+      {/* Fixed navigation bar */}
+      <div className="fixed top-4 right-4 flex space-x-4 z-10">
+        <a
+          href="https://github.com/connorkfeucht"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={"/GitHub_Invertocat_Dark.png"} // TODO: FIX. IMAGE NOT SHOWING UP PROPERLY
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/connorkfeucht"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+      </div>
+
       {/* Scrollable content */}
       <div className="w-full max-w-4xl overflow-y-auto flex-1 scrollbar-hide">
-
         <div className="w-full max-w-4xl p-8">
           <h1 className="text-center font-bold">WELCOME</h1>
         </div>
