@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import FadeIn from "../_components/animate/FadeIn";
 import useDecodeEffect from "../hooks/useDecodeEffect";
+import { motion } from "framer-motion";
 
 const HomePageContent = () => {
   const router = useRouter();
@@ -9,8 +10,13 @@ const HomePageContent = () => {
   useDecodeEffect(); // Use the custom hook
 
   return (
-    <div className="relative flex flex-col items-center justify-center p-4 h-screen">
-      {/* Fixed navigation bar */}
+    <motion.div
+      className="relative flex flex-col items-center justify-center p-4 h-screen"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      {/* Fixed navigation bar */} 
       <div className="fixed top-4 right-4 flex space-x-4 z-10">
         <a
           href="https://github.com/connorkfeucht"
@@ -90,7 +96,7 @@ const HomePageContent = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
