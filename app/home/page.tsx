@@ -63,7 +63,7 @@ const HomePageContent = () => {
             Time flies, and now I'm already in my fourth year!
           </p>
           <p className="text-lg mb-4">
-            If I'm not studying or working, you can usually find me on the basketball court, hanging out with my friends, or playing video games!
+            If I'm not studying or working, you can usually find me on the basketball or tennis court, hanging out with my friends, sketching, doing pottery, or playing video games!
           </p>
 
           <h2 className="text-2xl text-left font-bold mb-2">JOB EXPERIENCE</h2>
@@ -75,6 +75,46 @@ const HomePageContent = () => {
           </p>
           
           <h2 className="text-2xl text-left font-bold mb-2">TECHNICAL PROJECTS</h2>
+
+          <h3 className="text-lg text-left font-bold">SESHN</h3>
+          <p className="text-lg mb-4">
+            Seshn is a small app which aims to help students track their study sessions, and allows them to share those study sessions with their peers.
+            The original inspiration for this app was to combine the pomodoro style of studying with the popular running app Strava, in order to create a 
+            platform for students to get statistics about their study sessions, but also to encourage and promote studying through interactions with peers online.
+          </p>
+          <p className="text-lg mb-4">
+            The app was created using React Native, Expo, Typescript, and Supabase, and features a fully implemented friend system, posting and liking system, and activity
+            creation system, where users can add a title, description, and other things to each study session.
+          </p>
+
+          <h3 className="text-lg text-left font-bold">RESEARCH ASSISTANT</h3>
+          <p className="text-lg mb-4">
+            As a research assistant to Professor Teseo Schneider at the University of Victoria, I built a Python program which renders 3D models (.hdf5 files) into 
+            high resolution images, implementing added flexibility by having the option to edit certain parameters, such as camera position, model position, lighting, background 
+            and textures. We have hopes of writing a research paper on this topic, and bringing it to the CVPR conference in November.
+          </p>
+
+          <h3 className="text-lg text-left font-bold">ROBO RAMPAGE</h3>
+          <p className="text-lg mb-4">
+            Robo Rampage is a 2D platformer game that I created in 2023. It was developed in Unity with C#. This was one of my favourite projects that I've worked on because 
+            of the steep but satisfying learning curve for learning Unity. Since being a game developer is pretty high on my list of possible careers, I am planning on creating 
+            more video games in the near future, but I'd like to find an idea which I think is fun and unique before I commit to making another one.
+          </p>
+          <p className="text-lg mb-4">
+            One of the best parts about this project was being able to create all of the in game assets myself, since it allowed me more creative freedom then any other 
+            technical project I've done. Below is a short demo video of the gameplay.
+          </p>
+          <div className="flex justify-center my-8">
+            <iframe 
+              width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/QOU-uW6jd9c?si=rpELn8u92RghonIm" 
+              title="YouTube video player" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+            ></iframe>
+          </div>
           <h3 className="text-lg text-left font-bold">NOTENUDGE</h3>
           <p className="text-lg mb-4">
               NoteNudge is a passion project that leverages AI technology to assist students in studying more effectively for their classes.
@@ -95,6 +135,8 @@ const HomePageContent = () => {
             My responsibilities included designing, organizing, and programming the user interface of the application.
           </p>
         </div>
+
+
       </div>
     </motion.div>
   );
