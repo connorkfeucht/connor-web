@@ -29,7 +29,7 @@ body {
   font-family: var(--font-sans);
   padding: 0;
   margin: 0;
-  background-image: url('/edited-water.gif');
+  background-image: url('/background.jpeg');
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;

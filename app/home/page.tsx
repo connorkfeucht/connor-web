@@ -3,11 +3,30 @@ import { useRouter } from "next/navigation";
 import FadeIn from "../_components/animate/FadeIn";
 import useDecodeEffect from "../hooks/useDecodeEffect";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const HomePageContent = () => {
   const router = useRouter();
-  
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   useDecodeEffect(); // Use the custom hook
+
+  useEffect(() => {
+    // Check initial color scheme
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    setIsDarkMode(mediaQuery.matches);
+
+    // Listen for changes to color scheme
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsDarkMode(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
 
   return (
     <motion.div
@@ -25,9 +44,10 @@ const HomePageContent = () => {
           className="inline-block transition-transform duration-300 hover:scale-105"
         >
           <img
-            src={'/GitHub_Invertocat_Dark.png'}
+            src={isDarkMode ? '/GitHub_Invertocat_Dark.png' : '/GitHub_Invertocat_Light.png'}
             height={25}
             width={25}
+            alt="GitHub"
           />
         </a>
         <a
@@ -37,9 +57,10 @@ const HomePageContent = () => {
           className="inline-block transition-transform duration-300 hover:scale-105"
         >
           <img
-            src={'/InBug-Black.png'}
+            src={isDarkMode ? '/InBug-Black.png' : '/InBug-White.png'}
             height={25}
             width={25}
+            alt="LinkedIn"
           />
         </a>
       </div>
@@ -58,19 +79,48 @@ const HomePageContent = () => {
         <div className="p-8">
           <h2 className="text-2xl text-left font-bold mb-2">ABOUT ME</h2>
           <p className="text-lg mb-4">
-            Hi, I'm Connor! I'm currently a Computer Science major at the University of Victoria, specializing in Graphics and Gaming. 
-            Originally from Calgary, Alberta, I moved to Victoria in 2022 to pursue my studies. 
+            Hi, I'm Connor! I'm currently a Computer Science major at the University of Victoria, specializing in Graphics and Gaming.
+            Originally from Calgary, Alberta, I moved to Victoria in 2022 to pursue my studies.
             Time flies, and now I'm already in my fourth year!
           </p>
           <p className="text-lg mb-4">
             If I'm not studying or working, you can usually find me on the basketball or tennis court, hanging out with my friends, sketching, doing pottery, or playing video games!
           </p>
 
+          <h2 className="text-2xl text-left font-bold mb-2">CONTACT</h2>
+          <p className="text-lg mb-4">
+            Victoria, BC | connorkfeucht@uvic.ca | 403-992-7043
+          </p>
+
+          <h2 className="text-2xl text-left font-bold mb-2">SKILLS</h2>
+          <div className="text-lg mb-4">
+            <p className="mb-2">
+              <span className="font-semibold">Programming:</span> Python, JavaScript, C, Java, C++, PostgreSQL, Swift, C#, TypeScript, HTML, CSS
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold">Web Development:</span> React, Expo, next.js, Supabase, Flask, Firebase
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold">Operating Systems:</span> Unix/Linux, MS Windows, Mac OSX
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold">Software:</span> Visual Studio Code, Unity, git VCS, XCode, IntelliJ IDEA, TestNG, Blender, Microsoft Office
+            </p>
+          </div>
+
           <h2 className="text-2xl text-left font-bold mb-2">JOB EXPERIENCE</h2>
+          <h3 className="text-lg text-left font-bold">APPLICATION ENGINEER, SOUTHPAW TECHNOLOGY</h3>
+          <p className="text-lg mb-4">
+            I am currently working as an Application Engineer at Southpaw Technology, a remote position I started in September 2025.
+            In this role, I design and develop an ERP web application for a multi-million dollar client company.
+            I implement robust frontend and backend features using React, TACTIC, Flask, and PostgreSQL, while collaborating
+            in a dynamic startup environment and handling a broad range of technical responsibilities.
+          </p>
+
           <h3 className="text-lg text-left font-bold">HELP DESK ANALYST, UNIVERSITY OF VICTORIA</h3>
           <p className="text-lg mb-4">
-            During the Fall 2024 semester, I completed my first co-op as a Help Desk Analyst at UVic Systems. 
-            This role provided me with invaluable experience in troubleshooting a wide range of technical issues 
+            During the Fall 2024 semester, I completed my first co-op as a Help Desk Analyst at UVic Systems.
+            This role provided me with invaluable experience in troubleshooting a wide range of technical issues
             faced by students and staff. Additionally, I contributed by writing test scripts for a Java web application under the guidance of my mentor.
           </p>
           
@@ -126,14 +176,24 @@ const HomePageContent = () => {
           </p>
           <h3 className="text-lg text-left font-bold">PICIT</h3>
           <p className="text-lg mb-4">
-            PicIt is an iOS application that my friend and I launched in the Fall of 2024. 
-            It is a social media platform designed to bring people together by encouraging users 
+            PicIt is an iOS application that my friend and I launched in the Fall of 2024.
+            It is a social media platform designed to bring people together by encouraging users
             to recreate photos from their camera roll daily and share them with their friends.
           </p>
           <p className="text-lg mb-4">
-            Developed the front end of the iOS application using Xcode, Swift, and SwiftUI. 
+            Developed the front end of the iOS application using Xcode, Swift, and SwiftUI.
             My responsibilities included designing, organizing, and programming the user interface of the application.
           </p>
+
+          <h2 className="text-2xl text-left font-bold mb-2">AWARDS AND RECOGNITION</h2>
+          <div className="text-lg mb-4">
+            <p className="mb-2">
+              <span className="font-semibold">Most Improved Player</span> - Edge Prep Basketball, Edge School, Calgary, AB (Nov 2019 - Mar 2020)
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold">Captain</span> - Westmount Charter School Senior Varsity Basketball, Calgary, AB (Sep 2020 - June 2021)
+            </p>
+          </div>
         </div>
 
 
