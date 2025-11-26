@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 const HomePageContent = () => {
   const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [activeTab, setActiveTab] = useState<'about' | 'experience' | 'projects'>('about');
 
   useDecodeEffect(); // Use the custom hook
 
@@ -68,7 +69,7 @@ const HomePageContent = () => {
       {/* Content container */}
       <div className="flex flex-col items-center p-4">
         <div className="w-full max-w-4xl p-8">
-          <h1 
+          <h1
             className="text-center font-bold"
             data-value="WELCOME"
           >
@@ -76,8 +77,41 @@ const HomePageContent = () => {
           </h1>
         </div>
 
+        {/* Tab Navigation */}
+        <div className="w-full max-w-4xl px-8 mb-8">
+          <div className="flex gap-8 justify-center">
+            <button
+              onClick={() => setActiveTab('about')}
+              className={`text-lg transition-all duration-300 hover:scale-105 cursor-pointer ${
+                activeTab === 'about' ? 'underline underline-offset-4' : ''
+              }`}
+            >
+              About Me
+            </button>
+            <button
+              onClick={() => setActiveTab('experience')}
+              className={`text-lg transition-all duration-300 hover:scale-105 cursor-pointer ${
+                activeTab === 'experience' ? 'underline underline-offset-4' : ''
+              }`}
+            >
+              Experience
+            </button>
+            <button
+              onClick={() => setActiveTab('projects')}
+              className={`text-lg transition-all duration-300 hover:scale-105 cursor-pointer ${
+                activeTab === 'projects' ? 'underline underline-offset-4' : ''
+              }`}
+            >
+              Technical Projects
+            </button>
+          </div>
+        </div>
+
         <div className="w-full max-w-4xl p-8">
-          <h2 className="text-2xl text-left font-bold mb-2">ABOUT ME</h2>
+          {/* About Me Tab */}
+          {activeTab === 'about' && (
+            <>
+              <h2 className="text-2xl text-left font-bold mb-2">ABOUT ME</h2>
           <p className="text-lg mb-4">
             Hi, I'm Connor! I'm currently a Computer Science major at the University of Victoria, specializing in Graphics and Gaming.
             Originally from Calgary, Alberta, I moved to Victoria in 2022 to pursue my studies.
@@ -108,7 +142,22 @@ const HomePageContent = () => {
             </p>
           </div>
 
-          <h2 className="text-2xl text-left font-bold mb-2">JOB EXPERIENCE</h2>
+          <h2 className="text-2xl text-left font-bold mb-2">AWARDS AND RECOGNITION</h2>
+          <div className="text-lg mb-4">
+            <p className="mb-2">
+              <span className="font-semibold">Most Improved Player</span> - Edge Prep Basketball, Edge School, Calgary, AB (Nov 2019 - Mar 2020)
+            </p>
+            <p className="mb-2">
+              <span className="font-semibold">Captain</span> - Westmount Charter School Senior Varsity Basketball, Calgary, AB (Sep 2020 - June 2021)
+            </p>
+          </div>
+            </>
+          )}
+
+          {/* Experience Tab */}
+          {activeTab === 'experience' && (
+            <>
+          <h2 className="text-2xl text-left font-bold mb-2">EXPERIENCE</h2>
           <h3 className="text-lg text-left font-bold">APPLICATION ENGINEER, SOUTHPAW TECHNOLOGY</h3>
           <p className="text-lg mb-4">
             I am currently working as an Application Engineer at Southpaw Technology, a remote position I started in September 2025.
@@ -123,7 +172,19 @@ const HomePageContent = () => {
             This role provided me with invaluable experience in troubleshooting a wide range of technical issues
             faced by students and staff. Additionally, I contributed by writing test scripts for a Java web application under the guidance of my mentor.
           </p>
-          
+
+          <h3 className="text-lg text-left font-bold">RESEARCH ASSISTANT</h3>
+          <p className="text-lg mb-4">
+            From May 2025 to Present, I have been working as a Research Assistant to Dr. Teseo Schneider in the Department of Computer Science at the University of Victoria.
+            I built a Python program to render .hdf5 3D models into RGB and depth images for training neural networks.
+            Additionally, I utilized Blender to render images of .ply point clouds for neural network training.
+          </p>
+            </>
+          )}
+
+          {/* Technical Projects Tab */}
+          {activeTab === 'projects' && (
+            <>
           <h2 className="text-2xl text-left font-bold mb-2">TECHNICAL PROJECTS</h2>
 
           <h3 className="text-lg text-left font-bold">SESHN</h3>
@@ -135,13 +196,6 @@ const HomePageContent = () => {
           <p className="text-lg mb-4">
             The app was created using React Native, Expo, Typescript, and Supabase, and features a fully implemented friend system, posting and liking system, and activity
             creation system, where users can add a title, description, and other things to each study session.
-          </p>
-
-          <h3 className="text-lg text-left font-bold">RESEARCH ASSISTANT</h3>
-          <p className="text-lg mb-4">
-            As a research assistant to Professor Teseo Schneider at the University of Victoria, I built a Python program which renders 3D models (.hdf5 files) into 
-            high resolution images, implementing added flexibility by having the option to edit certain parameters, such as camera position, model position, lighting, background 
-            and textures. We have hopes of writing a research paper on this topic, and bringing it to the CVPR conference in November.
           </p>
 
           <h3 className="text-lg text-left font-bold">ROBO RAMPAGE</h3>
@@ -184,16 +238,8 @@ const HomePageContent = () => {
             Developed the front end of the iOS application using Xcode, Swift, and SwiftUI.
             My responsibilities included designing, organizing, and programming the user interface of the application.
           </p>
-
-          <h2 className="text-2xl text-left font-bold mb-2">AWARDS AND RECOGNITION</h2>
-          <div className="text-lg mb-4">
-            <p className="mb-2">
-              <span className="font-semibold">Most Improved Player</span> - Edge Prep Basketball, Edge School, Calgary, AB (Nov 2019 - Mar 2020)
-            </p>
-            <p className="mb-2">
-              <span className="font-semibold">Captain</span> - Westmount Charter School Senior Varsity Basketball, Calgary, AB (Sep 2020 - June 2021)
-            </p>
-          </div>
+            </>
+          )}
         </div>
       </div>
     </motion.div>
