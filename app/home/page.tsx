@@ -30,12 +30,12 @@ const HomePageContent = () => {
 
   return (
     <motion.div
-      className="relative flex flex-col items-center justify-center p-4 h-screen"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      className="relative h-screen overflow-y-auto"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {/* Fixed navigation bar */} 
+      {/* Fixed navigation bar */}
       <div className="fixed top-4 right-4 flex space-x-4 z-10">
         <a
           href="https://github.com/connorkfeucht"
@@ -65,8 +65,8 @@ const HomePageContent = () => {
         </a>
       </div>
 
-      {/* Scrollable content */}
-      <div className="w-full max-w-4xl overflow-y-auto flex-1 scrollbar-hide">
+      {/* Content container */}
+      <div className="flex flex-col items-center p-4">
         <div className="w-full max-w-4xl p-8">
           <h1 
             className="text-center font-bold"
@@ -76,7 +76,7 @@ const HomePageContent = () => {
           </h1>
         </div>
 
-        <div className="p-8">
+        <div className="w-full max-w-4xl p-8">
           <h2 className="text-2xl text-left font-bold mb-2">ABOUT ME</h2>
           <p className="text-lg mb-4">
             Hi, I'm Connor! I'm currently a Computer Science major at the University of Victoria, specializing in Graphics and Gaming.
@@ -195,8 +195,6 @@ const HomePageContent = () => {
             </p>
           </div>
         </div>
-
-
       </div>
     </motion.div>
   );
