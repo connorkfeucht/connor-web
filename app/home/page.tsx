@@ -9,24 +9,29 @@ const HomePageContent = () => {
   const router = useRouter();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [activeTab, setActiveTab] = useState<'about' | 'experience' | 'projects'>('about');
+  const [mounted, setMounted] = useState(false);
 
   useDecodeEffect(); // Use the custom hook
 
   useEffect(() => {
+    setMounted(true);
+
     // Check initial color scheme
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDarkMode(mediaQuery.matches);
+    if (typeof window !== 'undefined') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      setIsDarkMode(mediaQuery.matches);
 
-    // Listen for changes to color scheme
-    const handleChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-    };
+      // Listen for changes to color scheme
+      const handleChange = (e: MediaQueryListEvent) => {
+        setIsDarkMode(e.matches);
+      };
 
-    mediaQuery.addEventListener('change', handleChange);
+      mediaQuery.addEventListener('change', handleChange);
 
-    return () => {
-      mediaQuery.removeEventListener('change', handleChange);
-    };
+      return () => {
+        mediaQuery.removeEventListener('change', handleChange);
+      };
+    }
   }, []);
 
   return (
@@ -37,34 +42,36 @@ const HomePageContent = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* Fixed navigation bar */}
-      <div className="fixed top-4 right-4 flex space-x-4 z-10">
-        <a
-          href="https://github.com/connorkfeucht"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block transition-transform duration-300 hover:scale-105"
-        >
-          <img
-            src={isDarkMode ? '/GitHub_Invertocat_Dark.png' : '/GitHub_Invertocat_Light.png'}
-            height={25}
-            width={25}
-            alt="GitHub"
-          />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/connorkfeucht"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block transition-transform duration-300 hover:scale-105"
-        >
-          <img
-            src={isDarkMode ? '/InBug-Black.png' : '/InBug-White.png'}
-            height={25}
-            width={25}
-            alt="LinkedIn"
-          />
-        </a>
-      </div>
+      {mounted && (
+        <div className="fixed top-4 right-4 flex space-x-4 z-10">
+          <a
+            href="https://github.com/connorkfeucht"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              src={isDarkMode ? '/GitHub_Invertocat_Dark.png' : '/GitHub_Invertocat_Light.png'}
+              height={25}
+              width={25}
+              alt="GitHub"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/connorkfeucht"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              src={isDarkMode ? '/InBug-Black.png' : '/InBug-White.png'}
+              height={25}
+              width={25}
+              alt="LinkedIn"
+            />
+          </a>
+        </div>
+      )}
 
       {/* Content container */}
       <div className="flex flex-col items-center p-4">
