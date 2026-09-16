@@ -5,7 +5,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: 'Inter', Arial, Helvetica, sans-serif;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono: 'Roboto Mono', monospace;
 }
 
@@ -29,7 +29,7 @@ body {
   font-family: var(--font-sans);
   padding: 0;
   margin: 0;
-  background-image: url('/background.jpeg');
+  /* background-image: url('/background.jpeg'); */
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@ body {
 
 h1 {
   font-family: var(--font-mono);
-  font-size: 8rem;
+  font-size: 3rem;
 }
 
 /* Hide scrollbar */

@@ -69,6 +69,19 @@ const HomeContent = () => {
               alt="LinkedIn"
             />
           </a>
+          <a
+            href="https://soundcloud.com/ckf100"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              src={isDarkMode ? '/SoundCloud_Black.png' : '/SoundCloud_White.png'}
+              height={25}
+              width={25}
+              alt="SoundCloud"
+            />
+          </a>
         </div>
       )}
 
