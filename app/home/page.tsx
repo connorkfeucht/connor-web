@@ -34,13 +34,23 @@ const HomePageContent = () => {
 
   return (
     <motion.div
-      className="relative h-screen overflow-y-auto"
+      className="relative h-screen w-full overflow-y-auto"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {/* Fixed navigation bar */}
+      {/* TODO: FIX DECODE EFFECT HERE W/ USEREF*/}
       {mounted && (
+        <>        
+        <div className="w-full max-w-4xl pb-4 px-0 ml-0">
+          <h1
+            className="text-left font-bold text-3xl"
+            data-value="CONNOR_FEUCHT"
+          >
+            CONNOR_FEUCHT
+          </h1>
+        </div>
+
         <div className="fixed top-4 right-4 flex space-x-4 z-10">
           <a
             href="https://github.com/connorkfeucht"
@@ -82,21 +92,14 @@ const HomePageContent = () => {
             />
           </a>
         </div>
+        </>
       )}
 
-      {/* Content container - changed items-center to items-start */}
-      <div className="flex flex-col items-start p-4 md:p-12">
-        <div className="w-full max-w-4xl p-8 pb-0">
-          <h1
-            className="text-left font-bold text-3xl"
-            data-value="WELCOME"
-          >
-            WELCOME
-          </h1>
-        </div>
+      {/* Outer Wrapper */}
+      <div className="w-full text-left py-0 px-0 ml-0 mr-auto">
 
-        {/* Tab Navigation - changed justify-center to justify-start */}
-        <div className="w-full max-w-4xl p-8 mb-4">
+        {/* Tab Navigation */}
+        <div className="w-full max-w-4xl mb-8 px-0 ml-0">
           <div className="flex gap-8 justify-start">
             <button
               onClick={() => setActiveTab('about')}
@@ -125,7 +128,7 @@ const HomePageContent = () => {
           </div>
         </div>
 
-        <div className="w-full max-w-4xl px-8 pb-8">
+        <div className="w-full max-w-4xl px-0 ml-0">
           {/* About Me Tab */}
           {activeTab === 'about' && (
             <>
