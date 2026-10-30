@@ -40,72 +40,39 @@ const HomeContent = () => {
 
   return (
     <>
-      {/* Fixed navigation bar */}
+      {/* Top Header / Path Bar */}
       {mounted && (
-        <div className="fixed top-4 right-4 flex space-x-4 z-10">
-          {/* <a
-            href="https://github.com/connorkfeucht"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block transition-transform duration-300 hover:scale-105"
-          >
-            <img
-              src={isDarkMode ? '/GitHub_Invertocat_Dark.png' : '/GitHub_Invertocat_Light.png'}
-              height={25}
-              width={25}
-              alt="GitHub"
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/connorkfeucht"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block transition-transform duration-300 hover:scale-105"
-          >
-            <img
-              src={isDarkMode ? '/InBug-Black.png' : '/InBug-White.png'}
-              height={25}
-              width={25}
-              alt="LinkedIn"
-            />
-          </a>
-          <a
-            href="https://soundcloud.com/ckf100"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block transition-transform duration-300 hover:scale-105"
-          >
-            <img
-              src={isDarkMode ? '/SoundCloud_Black.png' : '/SoundCloud_White.png'}
-              height={25}
-              width={25}
-              alt="SoundCloud"
-            />
-          </a> */}
-          <a
-            href="https://github.com/connorkfeucht"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            [GITHUB]
-          </a>
-          <a
-            href="https://www.linkedin.com/in/connorkfeucht"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            [LINKEDIN]
-          </a>
-          <a
-            href="https://soundcloud.com/ckf100"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:underline"
-          >
-            [SOUNDCLOUD]
-          </a>
+        <div className="fixed top-0 left-0 w-full p-4 md:p-8 z-10 font-mono">
+          <div className="w-full border-b border-dashed border-current pb-2 flex flex-wrap justify-between items-center text-xs opacity-75">
+            <span>HTTP://connorkfeucht.dev/</span>
+            
+            <div className="flex space-x-3 text-xs">
+              <a
+                href="https://github.com/connorkfeucht"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                [GITHUB]
+              </a>
+              <a
+                href="https://www.linkedin.com/in/connorkfeucht"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                [LINKEDIN]
+              </a>
+              <a
+                href="https://soundcloud.com/ckf100"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                [SOUNDCLOUD]
+              </a>
+            </div>
+          </div>
         </div>
       )}
 

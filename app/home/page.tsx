@@ -39,11 +39,38 @@ const HomePageContent = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      {/* Fake Browser / Path Bar */}
+      {/* Fake Browser / Path Bar - Full End-to-End Width */}
       {mounted && (
-        <div className="w-full max-w-4xl border-b border-dashed border-current pb-2 mb-6 flex flex-wrap justify-between items-center text-xs opacity-75">
+        <div className="w-full border-b border-dashed border-current pb-2 mb-6 flex flex-wrap justify-between items-center text-xs opacity-75">
           <span>HTTP://connorkfeucht.dev/home</span>
-          <span>[^_^]</span>
+          
+          {/* Social Links on the Path Bar */}
+          <div className="flex space-x-3 text-xs">
+            <a
+              href="https://github.com/connorkfeucht"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              [GITHUB]
+            </a>
+            <a
+              href="https://www.linkedin.com/in/connorkfeucht"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              [LINKEDIN]
+            </a>
+            <a
+              href="https://soundcloud.com/ckf100"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              [SOUNDCLOUD]
+            </a>
+          </div>
         </div>
       )}
 
@@ -56,34 +83,6 @@ const HomePageContent = () => {
             >
               &gt; CONNOR_FEUCHT
             </h1>
-
-            {/* Social Links as Retro Text Badges */}
-            <div className="flex space-x-3 text-xs">
-              <a
-                href="https://github.com/connorkfeucht"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                [GITHUB]
-              </a>
-              <a
-                href="https://www.linkedin.com/in/connorkfeucht"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                [LINKEDIN]
-              </a>
-              <a
-                href="https://soundcloud.com/ckf100"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:underline"
-              >
-                [SOUNDCLOUD]
-              </a>
-            </div>
           </div>
         </>
       )}
@@ -165,10 +164,12 @@ const HomePageContent = () => {
               <h2 className="text-xl text-left font-bold mb-2 mt-6">&gt;&gt; AWARDS AND RECOGNITION</h2>
               <div className="text-base mb-4 space-y-1">
                 <p>
-                  - <span className="font-semibold">Most Improved Player:</span> Edge Prep Basketball, Edge School, Calgary, AB (Sep 2020 - June 2021)
+- 
+<span className="font-semibold">Most Improved Player:</span> Edge Prep Basketball, Edge School, Calgary, AB (Sep 2020 - June 2021)
                 </p>
                 <p>
-                  - <span className="font-semibold">Captain:</span> Westmount Charter School Senior Varsity Basketball, Calgary, AB (Nov 2019 - Mar 2020)
+- 
+<span className="font-semibold">Captain:</span> Westmount Charter School Senior Varsity Basketball, Calgary, AB (Nov 2019 - Mar 2020)
                 </p>
               </div>
             </>
