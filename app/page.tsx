@@ -43,7 +43,7 @@ const HomeContent = () => {
       {/* Fixed navigation bar */}
       {mounted && (
         <div className="fixed top-4 right-4 flex space-x-4 z-10">
-          <a
+          {/* <a
             href="https://github.com/connorkfeucht"
             target="_blank"
             rel="noopener noreferrer"
@@ -81,6 +81,30 @@ const HomeContent = () => {
               width={25}
               alt="SoundCloud"
             />
+          </a> */}
+          <a
+            href="https://github.com/connorkfeucht"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            [GITHUB]
+          </a>
+          <a
+            href="https://www.linkedin.com/in/connorkfeucht"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            [LINKEDIN]
+          </a>
+          <a
+            href="https://soundcloud.com/ckf100"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            [SOUNDCLOUD]
           </a>
         </div>
       )}
