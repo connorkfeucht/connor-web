@@ -42,8 +42,8 @@ const HomePageContent = () => {
       {/* Fake Browser / Path Bar */}
       {mounted && (
         <div className="w-full max-w-4xl border-b border-dashed border-current pb-2 mb-6 flex flex-wrap justify-between items-center text-xs opacity-75">
-          <span>HTTP://LOCALHOST:3000/~CONNOR_FEUCHT/INDEX.HTML</span>
-          <span>[SYSTEM: ONLINE]</span>
+          <span>HTTP://connorkfeucht.dev/home</span>
+          <span>[^_^]</span>
         </div>
       )}
 
@@ -98,8 +98,8 @@ const HomePageContent = () => {
               onClick={() => setActiveTab('about')}
               className={`px-3 py-1 text-sm border border-current cursor-pointer transition-none ${
                 activeTab === 'about'
-                  ? 'bg-current text-invert font-bold'
-                  : 'bg-transparent hover:bg-current hover:text-invert'
+                  ? 'bg-[#c5c6c7] text-invert font-bold'
+                  : 'bg-transparent hover:bg-[#c5c6c7] hover:text-invert'
               }`}
             >
               [ABOUT ME]
@@ -108,8 +108,8 @@ const HomePageContent = () => {
               onClick={() => setActiveTab('experience')}
               className={`px-3 py-1 text-sm border border-current cursor-pointer transition-none ${
                 activeTab === 'experience'
-                  ? 'bg-current text-invert font-bold'
-                  : 'bg-transparent hover:bg-current hover:text-invert'
+                  ? 'bg-[#c5c6c7] text-invert font-bold'
+                  : 'bg-transparent hover:bg-[#c5c6c7] hover:text-invert'
               }`}
             >
               [EXPERIENCE]
@@ -118,8 +118,8 @@ const HomePageContent = () => {
               onClick={() => setActiveTab('projects')}
               className={`px-3 py-1 text-sm border border-current cursor-pointer transition-none ${
                 activeTab === 'projects'
-                  ? 'bg-current text-invert font-bold'
-                  : 'bg-transparent hover:bg-current hover:text-invert'
+                  ? 'bg-[#c5c6c7] text-invert font-bold'
+                  : 'bg-transparent hover:bg-[#c5c6c7] hover:text-invert'
               }`}
             >
               [TECHNICAL PROJECTS]
